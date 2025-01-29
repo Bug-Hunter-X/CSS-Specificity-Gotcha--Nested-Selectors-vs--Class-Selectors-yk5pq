@@ -1,0 +1,39 @@
+The solution involves understanding CSS Specificity and adjusting the CSS to ensure the desired styles are applied:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+/*Increased specificity to override the class selector */
+div .special-paragraph {
+  color: green; 
+}
+
+.special-paragraph {
+  color: purple;
+}
+```
+
+Alternatively, adjust the order of declarations to favor the intended style:
+
+```css
+.special-paragraph {
+  color: purple;
+}
+div p {
+  color: green; /* This will take precedence if declared after .special-paragraph */
+}
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+```
+By using more specific selectors, or placing the more specific rule after the less specific one, we ensure the correct color is applied.
