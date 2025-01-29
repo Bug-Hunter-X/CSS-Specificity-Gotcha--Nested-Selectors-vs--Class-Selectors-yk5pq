@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This rule is intended to override the color of paragraph elements within div elements */
+}
+
+.special-paragraph {
+  color: purple; /* This rule uses a class selector and has higher specificity */
+}
+```
+
+The unexpected behavior might arise when `.special-paragraph` class is applied to a `<p>` element inside a `<div>`.  Due to specificity rules, the `color: purple;` declaration will override `color: green;` even though the latter seems more specific based on element nesting.  In some situations developers might mistakenly believe that the nested selector `div p` is more specific and the `color: green` should take precedence.
